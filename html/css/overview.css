@@ -1,0 +1,22 @@
+
+.sys-overview {
+   width: 90%;
+   margin: 4vh auto;
+}
+
+.sys-overview .pane-head {
+   height: 6vh;
+   line-height: 6vh;
+   font-size: 3.2vh;
+   border-bottom: 1px solid rgb(9, 9, 94);
+}
+
+.sf-botoom-div {
+   width: 80%;
+   margin: 1vh auto 0 auto;
+   padding: 0.8vh 0;
+   font-size: 1.6vh;
+   text-align: center;
+   border: 1px solid #dcdcdc;
+   border-radius: 4px;
+}

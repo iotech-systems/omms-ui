@@ -1,0 +1,52 @@
+<div id="kWhrsRptFrame" class="consumption-rpt-frame">
+   <!-- <div id="kWhrsRptHeader" class="kwhrs-rpt-header"> -->
+   <fieldset class="fldset-kwhrs-rpt">
+      <legend>kWh report</legend>
+      <div id="kWhSelector" class="kwh-selector">
+         <span>SUM for each:</span>
+         &nbsp;&nbsp;
+         <select id="selAggreateOn">
+            <option value="client_space" selected>
+               client&nbsp;&middot;&nbsp;space
+            </option>
+            <option value="client_meter">
+               client&nbsp;&middot;&nbsp;meter
+            </option>
+            <option value="electrical room" disabled>electrical room</option>
+            <option value="building" disabled>building</option>
+            <option value="geoloc" disabled>geo location</option>    
+         </select>
+         &nbsp;&nbsp;from:&nbsp;
+         <input type="date" id="startDate" placeholder="start date" />
+         &nbsp;to&nbsp;
+         <input type="date" id="endDate" placeholder="end date" />
+         <!-- quick select -->
+         <span>quick select:</span>
+         <select id="dateRangeSelector">
+            <option value="manual" selected>manual</option>
+            <option value="today">today</option>
+            <option value="thisMonth">this month</option>
+            <option value="lastMonth">last month</option>
+            <option value="meterTotal">meter total</option>
+         </select>
+         <!-- // -->
+         <span>totals only:</span>
+         <input type="checkbox" id="totalOnly"/>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         <input type="button" id="btnRunReport" value="run report" />
+         &nbsp;&nbsp;
+         <input type="button" id="btnExportReport" value="export" />
+         &nbsp;&nbsp;
+      </div>
+   </fieldset>
+   <!-- </div> -->
+   <div class="kwhrs-rpt-body">
+   </div>
+   __script
+      $("#dateRangeSelector").off().on("change", app.quickSelectChanged);
+      app.kWhrsClicks = new appClicks();
+      $("#btnRunReport").off().on("click", app.kWhrsClicks.run_kWhrsReport);
+      $("#btnExportReport").off().on("click", app.kWhrsClicks.export_kWhrsReport);
+      $("#kWhrsRptFrame .kwhrs-rpt-body").html("");
+   script__
+</div>

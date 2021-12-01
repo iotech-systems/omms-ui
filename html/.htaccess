@@ -1,0 +1,15 @@
+
+RewriteEngine on
+
+Options +Includes
+XBitHack on
+
+
+RedirectMatch 403 ^/pages/?$
+
+
+DirectoryIndex app/serve.py?page=home
+
+RewriteRule ^do/([a-z0-9]{4,16})$ app/run.py?action=$1
+RewriteRule ^([a-z0-9\-]{3,24})$ app/serve.py?page=$1
+RewriteRule ^([a-z0-9\-]{3,24})\.html$ app/serve.py?page=$1
